@@ -14,7 +14,10 @@ import br.com.opencv.model.ConversorMatriz;
 import br.com.opencv.model.ProcessamentoMatriz;
 import br.com.opencv.model.Tecnicas;
 import br.com.opencv.view.TelaPrincipal;
-
+/**
+ * Controlador principal do sistema
+ * @author Thiago Guy
+ */
 public class Controlador {
 
 	private TelaPrincipal telaPrincipal;
