@@ -1,13 +1,13 @@
 Visão Computacional
 =================
 >**Integrantes:**
->   Danilo Dorotheu
->   Thiago Gui
->   Diego Santana
->   Marcio Cruz
+>   Danilo Dorotheu,
+>   Thiago Gui,
+>   Diego Santana, e 
+>   Marcio Cruz;
 >    
->  Universidade Paulista - UNIP (Marquês)
->  Ciências da Compução
+>  Universidade Paulista - UNIP (Marquês) -
+>  Ciências da Compução - 
 >  Orientador: Gley Fabiano
  
 ----------------
