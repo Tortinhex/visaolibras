@@ -3,7 +3,7 @@ Visão Computacional
 >**Integrantes:**
 >   Danilo Dorotheu,
 >   Thiago Gui,
->   Diego Santana, e 
+>   Diego Santana e 
 >   Marcio Cruz;
 >    
 >  Universidade Paulista - UNIP (Marquês) -
