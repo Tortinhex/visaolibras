@@ -1,7 +1,12 @@
 package br.com.opencv.model;
 
+import java.util.Vector;
+
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.BackgroundSubtractorKNN;
@@ -192,5 +197,20 @@ public class Tecnicas {
 				mascaraBlackHat);
 		return matriz;
 	}
-
+	
+	/**
+	 * Procura e renderiza os contornos
+	 * @author Danilo Dorotheu
+	 * @param image {@link Mat}
+	 * @return {@link Mat}
+	 */
+	public Mat getContours(Mat image){
+		Vector<MatOfPoint> contours = new Vector<>();
+		Imgproc.findContours(image, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
+		Mat draw = Mat.zeros(image.size(), CvType.CV_8SC3);
+		for(int i = 0; i < contours.size(); i++){
+			Imgproc.drawContours(draw, contours, i, new Scalar(0, 0, 255), 2, 8, new Mat(), 0, new Point());
+		}
+		return draw;
+	}
 }
