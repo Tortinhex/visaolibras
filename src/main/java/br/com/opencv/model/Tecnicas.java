@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfInt;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
@@ -87,7 +88,7 @@ public class Tecnicas {
 	 * 
 	 * @param matriz
 	 * @return {@link Mat}
-	 * @author thiago
+	 * @author Thiago Guy
 	 */
 	public Mat backgroundSubtractionKNN(Mat matriz) {
 		Mat matrizBS = new Mat(matriz.size(), CvType.CV_8U);
@@ -102,7 +103,7 @@ public class Tecnicas {
 	 * 
 	 * @param matriz
 	 * @return {@link Mat}
-	 * @author thiago
+	 * @author Thiago Guy
 	 */
 	public Mat backgroundSubtractionMOG2(Mat matriz) {
 		Mat matrizBS = new Mat(matriz.size(), CvType.CV_8UC1);
@@ -197,20 +198,49 @@ public class Tecnicas {
 				mascaraBlackHat);
 		return matriz;
 	}
-	
+
 	/**
 	 * Procura e renderiza os contornos
-	 * @author Danilo Dorotheu
-	 * @param image {@link Mat}
+	 * 
+	 * @author Danilo Dorotheu & Thiago Guy
+	 * @param image
+	 *            {@link Mat}
 	 * @return {@link Mat}
 	 */
-	public Mat getContours(Mat image){
+	public Mat findContours(Mat image) {
+
 		Vector<MatOfPoint> contours = new Vector<>();
-		Imgproc.findContours(image, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
-		Mat draw = Mat.zeros(image.size(), CvType.CV_8SC3);
-		for(int i = 0; i < contours.size(); i++){
-			Imgproc.drawContours(draw, contours, i, new Scalar(0, 0, 255), 2, 8, new Mat(), 0, new Point());
+
+		MatOfInt hull = new MatOfInt();
+		Vector<Point> pointsHull = new Vector<>();
+		MatOfPoint contourHull = new MatOfPoint();
+		Vector<MatOfPoint> contoursHull = new Vector<>();
+		Mat draw = Mat.zeros(image.size(), CvType.CV_8UC3);
+
+		Imgproc.findContours(image, contours, new Mat(), Imgproc.RETR_TREE,
+				Imgproc.CHAIN_APPROX_SIMPLE);
+
+		if (contours.size() == 0)
+			return image;
+
+		for (int i = 0; i < contours.size(); i++) {
+
+			Imgproc.convexHull(contours.get(i), hull, false);
+			pointsHull.clear();
+
+			for (int j = 0; j < hull.toList().size(); j++)
+				pointsHull.add(contours.get(i).toList()
+						.get(hull.toList().get(j)));
+
+			contourHull.fromList(pointsHull);
+			contoursHull.add(contourHull);
+
+			Imgproc.drawContours(draw, contours, i, new Scalar(0, 0, 255), 2,
+					8, new Mat(), 0, new Point());
+			Imgproc.drawContours(draw, contoursHull, i, new Scalar(0, 0, 255),
+					2, 8, new Mat(), 0, new Point());
 		}
+
 		return draw;
 	}
 }

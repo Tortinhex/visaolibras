@@ -45,7 +45,7 @@ public class PainelMedianBlur extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Mascara"));
+		add(new JLabel("Máscara"));
 		add(new JSpinner(controleMascaraBorramento));
 	}
 

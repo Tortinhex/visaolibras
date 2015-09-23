@@ -39,7 +39,7 @@ public class PainelErode extends JPanel {
 				Configuracao.mascaraErosaoYMin, Configuracao.mascaraErosaoYMax,
 				Configuracao.mascaraErosaoYStep);
 		controleElemento = new JComboBox<String>();
-		controleElemento.addItem("Retangulo");
+		controleElemento.addItem("Retângulo");
 		controleElemento.addItem("Cruz");
 		controleElemento.addItem("Elipse");
 		controleElemento.setSelectedIndex(Configuracao.elementoErosao);
@@ -55,9 +55,9 @@ public class PainelErode extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Mascara X"));
+		add(new JLabel("Máscara X"));
 		add(new JSpinner(controleMascaraX));
-		add(new JLabel("Mascara Y"));
+		add(new JLabel("Máscara Y"));
 		add(new JSpinner(controleMascaraY));
 		add(new JLabel("Elemento"));
 		add(controleElemento);

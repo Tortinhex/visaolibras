@@ -61,7 +61,7 @@ public class PainelLaplacian extends JPanel {
 	private void adicionaComponentes() {
 		add(new JLabel("Profundidade"));
 		add(new JSpinner(controleProfundidade));
-		add(new JLabel("Mascara"));
+		add(new JLabel("Máscara"));
 		add(new JSpinner(controleMascara));
 		add(new JLabel("Escala"));
 		add(new JSpinner(controleEscala));

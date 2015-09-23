@@ -12,6 +12,7 @@ import java.util.Enumeration;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -61,12 +62,17 @@ public class TelaTecnicas extends JFrame {
 		getContentPane().setBackground(Color.white);
 		setLocationRelativeTo(null);
 		componenteListaEscolhaPi.setBorder(BorderFactory
-				.createTitledBorder("Tecnicas Disponiveis"));
+				.createTitledBorder("Técnicas Disponíveis"));
 		componenteListaSelecaoPi.setBorder(BorderFactory
-				.createTitledBorder("Tecnicas Adicionadas"));
+				.createTitledBorder("Técnicas Adicionadas"));
 	}
 
 	private void adicionaComponentes() {
+
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
+				.getResource("/br/com/opencv/image/operations.png"));
+
+		setIconImage(iconeChapeuGraduacao.getImage());
 
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.anchor = GridBagConstraints.NORTHWEST;

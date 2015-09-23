@@ -61,9 +61,9 @@ public class PainelBackgroundSubtractionKNN extends JPanel {
 	private void adicionaComponentes() {
 		add(new JLabel("Taxa de Aprendizado"));
 		add(new JSpinner(controleTaxaAprendizado));
-		add(new JLabel("Historico"));
+		add(new JLabel("Histórico"));
 		add(new JSpinner(controleHistorico));
-		add(new JLabel("Limiarizacao"));
+		add(new JLabel("Limiarização"));
 		add(new JSpinner(controleLimiarizacao));
 		add(new JLabel("Sombra"));
 		add(controleSombra);

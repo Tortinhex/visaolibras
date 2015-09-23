@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -66,6 +67,11 @@ public class TelaConfiguracoes extends JFrame {
 	}
 
 	private void adicionaComponentes() {
+
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
+				.getResource("/br/com/opencv/image/settings.png"));
+
+		setIconImage(iconeChapeuGraduacao.getImage());
 
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.anchor = GridBagConstraints.NORTHWEST;

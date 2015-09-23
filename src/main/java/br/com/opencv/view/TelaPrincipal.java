@@ -12,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -39,7 +40,8 @@ public class TelaPrincipal extends JFrame {
 	private TelaConfiguracoes telaConfiguracoes;
 
 	public TelaPrincipal() {
-		super("TCC - Reconhecimento de Gestos");
+		super(
+				"Universidade Paulista - Marquês - Ciência da Computação - TCC 2015");
 		carregaComponentes();
 		adicionaLayouts();
 		customizaComponentes();
@@ -58,10 +60,10 @@ public class TelaPrincipal extends JFrame {
 		painelInferior = new JPanel();
 		painelCaptura = new PainelVideo();
 		menu = new JMenuBar();
-		botaoCaptura = new JToggleButton("Capturar Video");
-		menuOpcoes = new JMenu("Opcoes");
-		itemTecnicas = new JMenuItem("Tecnicas");
-		itemConfiguracoes = new JMenuItem("Configuracoes");
+		botaoCaptura = new JToggleButton("Capturar Vídeo");
+		menuOpcoes = new JMenu("Opções");
+		itemTecnicas = new JMenuItem("Técnicas");
+		itemConfiguracoes = new JMenuItem("Configurações");
 		itemSair = new JMenuItem("Sair");
 		visualizadorContadorFrames = new JLabel("Nenhum frame capturado..");
 	}
@@ -84,6 +86,24 @@ public class TelaPrincipal extends JFrame {
 	}
 
 	private void adicionaComponentes() {
+
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
+				.getResource("/br/com/opencv/image/graduation_hat.png"));
+
+		ImageIcon iconeTecnicas = new ImageIcon(this.getClass().getResource(
+				"/br/com/opencv/image/operations.png"));
+
+		ImageIcon iconeConfiguracoes = new ImageIcon(this.getClass()
+				.getResource("/br/com/opencv/image/settings.png"));
+
+		ImageIcon iconeSair = new ImageIcon(this.getClass().getResource(
+				"/br/com/opencv/image/exit.png"));
+
+		setIconImage(iconeChapeuGraduacao.getImage());
+		itemTecnicas.setIcon(iconeTecnicas);
+		itemConfiguracoes.setIcon(iconeConfiguracoes);
+		itemSair.setIcon(iconeSair);
+
 		painelMenu.add(menu, BorderLayout.CENTER);
 		painelInferior.add(botaoCaptura);
 		painelInferior.add(visualizadorContadorFrames);

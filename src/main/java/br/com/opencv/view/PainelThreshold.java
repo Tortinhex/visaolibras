@@ -42,8 +42,8 @@ public class PainelThreshold extends JPanel {
 				Configuracao.limiteLimiarizacaoMax,
 				Configuracao.limiteLimiarizacaoStep);
 		controleTipo = new JComboBox<String>();
-		controleTipo.addItem("Binario");
-		controleTipo.addItem("Binario Invertido");
+		controleTipo.addItem("Binário");
+		controleTipo.addItem("Binário Invertido");
 		controleTipo.addItem("Truncado");
 		controleTipo.addItem("Para Zero");
 		controleTipo.addItem("Para Zero Invertido");
@@ -59,7 +59,7 @@ public class PainelThreshold extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Limiarizacao"));
+		add(new JLabel("Limiarização"));
 		add(new JSpinner(controleValor));
 		add(new JLabel("Limite"));
 		add(new JSpinner(controleLimite));

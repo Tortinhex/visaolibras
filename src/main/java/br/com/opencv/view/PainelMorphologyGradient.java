@@ -43,7 +43,7 @@ public class PainelMorphologyGradient extends JPanel {
 				Configuracao.mascaraGradienteMorfologicoYMax,
 				Configuracao.mascaraGradienteMorfologicoYStep);
 		controleElemento = new JComboBox<String>();
-		controleElemento.addItem("Retangulo");
+		controleElemento.addItem("Retângulo");
 		controleElemento.addItem("Cruz");
 		controleElemento.addItem("Elipse");
 		controleElemento
@@ -60,9 +60,9 @@ public class PainelMorphologyGradient extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Mascara X"));
+		add(new JLabel("Máscara X"));
 		add(new JSpinner(controleMascaraX));
-		add(new JLabel("Mascara Y"));
+		add(new JLabel("Máscara Y"));
 		add(new JSpinner(controleMascaraY));
 		add(new JLabel("Elemento"));
 		add(controleElemento);

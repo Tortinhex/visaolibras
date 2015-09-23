@@ -62,11 +62,11 @@ public class PainelCanny extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Valor Minimo da Limiarizacao"));
+		add(new JLabel("Valor Mínimo da Limiarização"));
 		add(new JSpinner(controleValorMinimoLimiarizacao));
-		add(new JLabel("Valor Maximo da Limiarizacao"));
+		add(new JLabel("Valor Máximo da Limiarização"));
 		add(new JSpinner(controleValorMaximoLimiarizacao));
-		add(new JLabel("Mascara Gradiente"));
+		add(new JLabel("Máscara Gradiente"));
 		add(new JSpinner(controleMascaraGradiente));
 		add(new JLabel("Gradiente"));
 		add(controleGradiente);

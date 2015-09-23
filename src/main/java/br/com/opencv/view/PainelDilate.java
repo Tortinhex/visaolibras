@@ -43,7 +43,7 @@ public class PainelDilate extends JPanel {
 				Configuracao.mascaraDilatacaoYMax,
 				Configuracao.mascaraDilatacaoYStep);
 		controleElemento = new JComboBox<String>();
-		controleElemento.addItem("Retangulo");
+		controleElemento.addItem("Retângulo");
 		controleElemento.addItem("Cruz");
 		controleElemento.addItem("Elipse");
 		controleElemento.setSelectedIndex(Configuracao.elementoDilatacao);
@@ -59,9 +59,9 @@ public class PainelDilate extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Mascara X"));
+		add(new JLabel("Máscara X"));
 		add(new JSpinner(controleMascaraX));
-		add(new JLabel("Mascara Y"));
+		add(new JLabel("Máscara Y"));
 		add(new JSpinner(controleMascaraY));
 		add(new JLabel("Elemento"));
 		add(controleElemento);

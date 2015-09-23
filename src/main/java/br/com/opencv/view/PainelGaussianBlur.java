@@ -62,13 +62,13 @@ public class PainelGaussianBlur extends JPanel {
 	}
 
 	private void adicionaComponentes() {
-		add(new JLabel("Mascara X"));
+		add(new JLabel("Máscara X"));
 		add(new JSpinner(controleMascaraBorramentoX));
-		add(new JLabel("Mascara Y"));
+		add(new JLabel("Máscara Y"));
 		add(new JSpinner(controleMascaraBorramentoY));
-		add(new JLabel("Desvio Padrao X"));
+		add(new JLabel("Desvio Padrão X"));
 		add(new JSpinner(controleDesvioPadraoBorramentoX));
-		add(new JLabel("Desvio Padrao Y"));
+		add(new JLabel("Desvio Padrão Y"));
 		add(new JSpinner(controleDesvioPadraoBorramentoY));
 	}
 
