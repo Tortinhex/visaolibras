@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 import br.com.opencv.controller.Controlador;
+import br.com.opencv.model.Configuracao;
 
 public class TelaPrincipal extends JFrame {
 
@@ -87,17 +88,18 @@ public class TelaPrincipal extends JFrame {
 
 	private void adicionaComponentes() {
 
-		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
-				.getResource("/br/com/opencv/image/graduation_hat.png"));
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(
+				Configuracao.diretorioUsuario
+						+ "/resources/image/graduation_hat.png");
 
-		ImageIcon iconeTecnicas = new ImageIcon(this.getClass().getResource(
-				"/br/com/opencv/image/operations.png"));
+		ImageIcon iconeTecnicas = new ImageIcon(Configuracao.diretorioUsuario
+				+ "/resources/image/operations.png");
 
-		ImageIcon iconeConfiguracoes = new ImageIcon(this.getClass()
-				.getResource("/br/com/opencv/image/settings.png"));
+		ImageIcon iconeConfiguracoes = new ImageIcon(
+				Configuracao.diretorioUsuario + "/resources/image/settings.png");
 
-		ImageIcon iconeSair = new ImageIcon(this.getClass().getResource(
-				"/br/com/opencv/image/exit.png"));
+		ImageIcon iconeSair = new ImageIcon(Configuracao.diretorioUsuario
+				+ "/resources/image/exit.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());
 		itemTecnicas.setIcon(iconeTecnicas);

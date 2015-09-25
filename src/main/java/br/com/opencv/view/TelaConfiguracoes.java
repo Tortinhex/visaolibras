@@ -13,6 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import br.com.opencv.model.Configuracao;
+
 public class TelaConfiguracoes extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -68,8 +70,8 @@ public class TelaConfiguracoes extends JFrame {
 
 	private void adicionaComponentes() {
 
-		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
-				.getResource("/br/com/opencv/image/settings.png"));
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(
+				Configuracao.diretorioUsuario + "/resources/image/settings.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());
 

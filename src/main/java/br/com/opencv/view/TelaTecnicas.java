@@ -19,6 +19,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
+import br.com.opencv.model.Configuracao;
+
 public class TelaTecnicas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -69,8 +71,9 @@ public class TelaTecnicas extends JFrame {
 
 	private void adicionaComponentes() {
 
-		ImageIcon iconeChapeuGraduacao = new ImageIcon(this.getClass()
-				.getResource("/br/com/opencv/image/operations.png"));
+		ImageIcon iconeChapeuGraduacao = new ImageIcon(
+				Configuracao.diretorioUsuario
+						+ "/resources/image/operations.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());
 

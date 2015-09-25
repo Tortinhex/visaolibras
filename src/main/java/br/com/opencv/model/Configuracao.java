@@ -4,6 +4,8 @@ import org.opencv.core.CvType;
 
 public class Configuracao {
 
+	public static String diretorioUsuario = System.getProperty("user.dir");
+
 	// BACKGROUND SUBTRACTION KNN
 	public static double taxaAprendizadoKNN = 0.001;
 	public static double taxaAprendizadoKNNMin = 0.001;
