@@ -71,7 +71,7 @@ public class TelaConfiguracoes extends JFrame {
 	private void adicionaComponentes() {
 
 		ImageIcon iconeChapeuGraduacao = new ImageIcon(
-				Configuracao.diretorioUsuario + "/resources/image/settings.png");
+				Configuracao.DIRETORIO_RAIZ + "/resources/image/settings.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());
 

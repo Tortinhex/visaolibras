@@ -5,6 +5,7 @@ import java.util.Vector;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfInt;
+import org.opencv.core.MatOfInt4;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
@@ -200,7 +201,9 @@ public class Tecnicas {
 	}
 
 	/**
-	 * Procura e renderiza os contornos
+	 * 1- Procura e renderiza os contornos nos objetos
+	 * 2- Procura e renderiza a convexidade do contorno dos objetos
+	 * 3- Procura e renderiza pontos especificos do contorno dos objetos e da convexidade
 	 * 
 	 * @author Danilo Dorotheu & Thiago Guy
 	 * @param image
@@ -210,8 +213,8 @@ public class Tecnicas {
 	public Mat findContours(Mat image) {
 
 		Vector<MatOfPoint> contours = new Vector<>();
-
-		MatOfInt hull = new MatOfInt();
+		Vector<MatOfInt> hulls = new Vector<>();
+		Vector<MatOfInt4> defects = new Vector<>();
 		Vector<Point> pointsHull = new Vector<>();
 		MatOfPoint contourHull = new MatOfPoint();
 		Vector<MatOfPoint> contoursHull = new Vector<>();
@@ -220,27 +223,56 @@ public class Tecnicas {
 		Imgproc.findContours(image, contours, new Mat(), Imgproc.RETR_TREE,
 				Imgproc.CHAIN_APPROX_SIMPLE);
 
-		if (contours.size() == 0)
+		int contoursSize = contours.size();
+		if (contoursSize == 0)
 			return image;
 
-		for (int i = 0; i < contours.size(); i++) {
+		for (int i = 0; i < contoursSize; i++) {
 
-			Imgproc.convexHull(contours.get(i), hull, false);
+			hulls.add(new MatOfInt());
+			defects.add(new MatOfInt4());
+			Imgproc.convexHull(contours.get(i), hulls.get(i), false);
+			Imgproc.convexityDefects(contours.get(i), hulls.get(i),
+					defects.get(i));
 			pointsHull.clear();
 
-			for (int j = 0; j < hull.toList().size(); j++)
+			for (int j = 0; j < hulls.get(i).toList().size(); j++)
 				pointsHull.add(contours.get(i).toList()
-						.get(hull.toList().get(j)));
+						.get(hulls.get(i).toList().get(j)));
 
 			contourHull.fromList(pointsHull);
 			contoursHull.add(contourHull);
 
 			Imgproc.drawContours(draw, contours, i, new Scalar(0, 0, 255), 2,
 					8, new Mat(), 0, new Point());
-			Imgproc.drawContours(draw, contoursHull, i, new Scalar(0, 0, 255),
-					2, 8, new Mat(), 0, new Point());
+			Imgproc.drawContours(draw, contoursHull, i, new Scalar(255, 0, 0),
+					3, 8, new Mat(), 0, new Point());
+
+			Point data[] = contours.get(i).toArray();
+			int cd[] = defects.get(i).toArray();
+			int defectsSize = defects.get(i).toArray().length;
+
+			for (int j = 0; j < defectsSize; j += 4) {
+
+				Point pontoIncial = data[cd[j]];
+				Point pontoFinal = data[cd[j + 1]];
+				Point pontoPonta = data[cd[j + 2]];
+
+				Imgproc.line(draw, pontoIncial, pontoFinal, new Scalar(0, 255,
+						0), 1);
+				Imgproc.line(draw, pontoFinal, pontoPonta,
+						new Scalar(0, 255, 0), 1);
+				Imgproc.line(draw, pontoIncial, pontoPonta, new Scalar(0, 255,
+						0), 1);
+				Imgproc.circle(draw, pontoIncial, 5, new Scalar(0, 255, 0), 2);
+				Imgproc.circle(draw, pontoFinal, 5, new Scalar(0, 255, 0), 2);
+				Imgproc.circle(draw, pontoPonta, 5, new Scalar(0, 255, 0), 2);
+
+			}
+
 		}
 
 		return draw;
 	}
+
 }

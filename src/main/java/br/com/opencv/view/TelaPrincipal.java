@@ -89,16 +89,16 @@ public class TelaPrincipal extends JFrame {
 	private void adicionaComponentes() {
 
 		ImageIcon iconeChapeuGraduacao = new ImageIcon(
-				Configuracao.diretorioUsuario
+				Configuracao.DIRETORIO_RAIZ
 						+ "/resources/image/graduation_hat.png");
 
-		ImageIcon iconeTecnicas = new ImageIcon(Configuracao.diretorioUsuario
+		ImageIcon iconeTecnicas = new ImageIcon(Configuracao.DIRETORIO_RAIZ
 				+ "/resources/image/operations.png");
 
 		ImageIcon iconeConfiguracoes = new ImageIcon(
-				Configuracao.diretorioUsuario + "/resources/image/settings.png");
+				Configuracao.DIRETORIO_RAIZ + "/resources/image/settings.png");
 
-		ImageIcon iconeSair = new ImageIcon(Configuracao.diretorioUsuario
+		ImageIcon iconeSair = new ImageIcon(Configuracao.DIRETORIO_RAIZ
 				+ "/resources/image/exit.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());

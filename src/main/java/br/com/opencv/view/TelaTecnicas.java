@@ -72,8 +72,7 @@ public class TelaTecnicas extends JFrame {
 	private void adicionaComponentes() {
 
 		ImageIcon iconeChapeuGraduacao = new ImageIcon(
-				Configuracao.diretorioUsuario
-						+ "/resources/image/operations.png");
+				Configuracao.DIRETORIO_RAIZ + "/resources/image/operations.png");
 
 		setIconImage(iconeChapeuGraduacao.getImage());
 
