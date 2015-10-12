@@ -2,7 +2,7 @@ Visão Computacional
 =================
 >**Integrantes:**
 >   Danilo Dorotheu,
->   Thiago Gui,
+>   Thiago Guy,
 >   Diego Santana e 
 >   Marcio Cruz;
 >    
